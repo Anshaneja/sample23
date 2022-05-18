@@ -1,0 +1,10 @@
+.active-membership {
+    padding: 1rem;
+    border-radius: 0 10px 10px 0;
+    background-color: rgb(94, 110, 255);
+    color: white;
+    transition: padding 350ms 50ms ease-in-out;
+}
+.active-membership p{
+    color: rgb(202, 202, 202);
+}
