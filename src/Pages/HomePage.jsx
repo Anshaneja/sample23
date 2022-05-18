@@ -14,6 +14,8 @@ import { useParams } from "react-router-dom";
 // import promotion from "../Videos/promotion.mp4";
 import Accordion from "./Accordion.css";
 import { BiChevronDown } from "react-icons/bi";
+import ReactAudioPlayer from 'react-audio-player';
+import dhuni from "../audio/dhuni.mpeg";
 
 const settings2 = {
   dots: true,
@@ -87,17 +89,65 @@ const HomePage = () => {
   });
   return (
     <>
-      <div className="mt-10 mb-10 ml-10 mr-10  ">
-        <iframe
-          className="aspect-video m-auto h-96 rounded-lg shadow-lg shadow-yellow-800/40"
-          src=""
-          allow="autoplay"
-        >
-          {" "}
-          frameborder="0" allow="accelerometer; ; clipboard-write;
-          encrypted-media; gyroscope; picture-in-picture"
-        </iframe>
+      <div className="flex mx-5">
+        <div className="w-[60vw] mr-5 ml-10">
+          <h1 className="font-bold text-2xl ml-10 p-6">About Punjabi University</h1>
+          <p className="p-2  text-justify space-x-4">
+            Punjab Assembly established Punjabi University, Patiala under the
+            Punjab Act No. 35 of 1961. Dr. S. Radhakrishnan, the then President
+            of India laid foundation of Punjabi University on June 24, 1962. He
+            preached, "The institutes of higher education share the burden of
+            nation-building in a critically important sense. Our aim is a
+            strong, free and democratic India where every citizen has an equal
+            place and full opportunity of growth. In this task, a vast
+            responsibility rests on our universities." Established on April 30,
+            1962 in the erstwhile princely state of Patiala with the main
+            objective of furthering the cause of Punjabi language, art and
+            literature, Punjabi University has since evolved into the largest
+            University in the state. This is the second University in the world
+            to be named after a language, the first being Hebrew University of
+            Israel. Its vision is to establish and incorporate a University for
+            the advancement of Punjabi studies and development of Punjabi
+            language as a medium of instruction or otherwise for providing
+            instruction in humanistic and scientific subjects and generally for
+            the promotion of education and research. The University started
+            working from its present lush green, pollution free, 316 acres
+            campus since 1965.
+          </p>
+          <p className="p-2  text-justify space-x-4">
+            Initially University’s jurisdiction area was fixed as the 16 km
+            radius having only 9 colleges. In 1969, it grew into an affiliating
+            university, with 43 colleges affiliated to it. Now the university
+            caters to the educational needs of nine Districts of Punjab. Over
+            the time since its inception, the University has evolved into a
+            multi-faceted and multi-faculty educational institution for the
+            promotion of higher education and research in Humanities, Arts,
+            Sciences, Engineering Languages, Technology and many more. Spread
+            over 600 acres of land, its 1500+ teachers are imparting instruction
+            and guidance to nearly 14,000+ students in a multi-faceted,
+            multi-pronged and multi-faculty environment comprising 70+ Teaching
+            and Research Departments/Chairs on its Campus, 27 Regional Centre/
+            Neighbourhood Campuses/Constituent Colleges and 274 Colleges
+            affiliated to it.
+          </p>
+
+          <hr />
+        </div>
+        <div className="w-[800px] p-5">
+          <div className="flex text-lg gap-2 pb-2 font-semibold items-center">
+            <h1>Dhuni</h1>
+            <ReactAudioPlayer
+              src={dhuni}
+              controls
+            />
+          </div>
+          <img
+            src={main_img}
+            className="w-full h-[90%] border-2 shadow-lg"
+          ></img>
+        </div>
       </div>
+      
       <div className=" flex flex-col w-full px-12">
         <div className="flex justify-center pb-10 w-full overflow-hidden">
           <div className="w-64 h-64">
@@ -186,68 +236,30 @@ const HomePage = () => {
               </p>
             </div>
           </div>
+
         </div>
       </div>
 
-      <h1 className="font-bold text-2xl ml-10 p-6">About Punjabi University</h1>
-      <div className="flex mx-5">
-        <div className="w-[60vw] mr-5 ml-10">
-          <p className="p-2  text-justify space-x-4">
-            Punjab Assembly established Punjabi University, Patiala under the
-            Punjab Act No. 35 of 1961. Dr. S. Radhakrishnan, the then President
-            of India laid foundation of Punjabi University on June 24, 1962. He
-            preached, "The institutes of higher education share the burden of
-            nation-building in a critically important sense. Our aim is a
-            strong, free and democratic India where every citizen has an equal
-            place and full opportunity of growth. In this task, a vast
-            responsibility rests on our universities." Established on April 30,
-            1962 in the erstwhile princely state of Patiala with the main
-            objective of furthering the cause of Punjabi language, art and
-            literature, Punjabi University has since evolved into the largest
-            University in the state. This is the second University in the world
-            to be named after a language, the first being Hebrew University of
-            Israel. Its vision is to establish and incorporate a University for
-            the advancement of Punjabi studies and development of Punjabi
-            language as a medium of instruction or otherwise for providing
-            instruction in humanistic and scientific subjects and generally for
-            the promotion of education and research. The University started
-            working from its present lush green, pollution free, 316 acres
-            campus since 1965.
-          </p>
-          <p className="p-2  text-justify space-x-4">
-            Initially University’s jurisdiction area was fixed as the 16 km
-            radius having only 9 colleges. In 1969, it grew into an affiliating
-            university, with 43 colleges affiliated to it. Now the university
-            caters to the educational needs of nine Districts of Punjab. Over
-            the time since its inception, the University has evolved into a
-            multi-faceted and multi-faculty educational institution for the
-            promotion of higher education and research in Humanities, Arts,
-            Sciences, Engineering Languages, Technology and many more. Spread
-            over 600 acres of land, its 1500+ teachers are imparting instruction
-            and guidance to nearly 14,000+ students in a multi-faceted,
-            multi-pronged and multi-faculty environment comprising 70+ Teaching
-            and Research Departments/Chairs on its Campus, 27 Regional Centre/
-            Neighbourhood Campuses/Constituent Colleges and 274 Colleges
-            affiliated to it.
-          </p>
-
-          <hr />
-        </div>
-        <div className="w-[800px] p-5">
-          <img
-            src={main_img}
-            className="w-full h-full border-2 shadow-lg"
-          ></img>
-        </div>
+      <div className="mt-10 mb-10 ml-10 mr-10  ">
+        <iframe
+          className="aspect-video m-auto h-96 rounded-lg shadow-lg shadow-yellow-800/40"
+          src=""
+          allow="autoplay"
+        >
+          {" "}
+          frameborder="0" allow="accelerometer; ; clipboard-write;
+          encrypted-media; gyroscope; picture-in-picture"
+        </iframe>
       </div>
+
+      
 
       <div className="pt-6 pb-12  mx-12 my-8 " id="Aims" ref={aimsRef}>
         <div id="card" className="block">
           <div className="container w-[84rem]  mx-auto flex flex-col ">
             <div
               v-for="card in cards"
-              className="flex flex-col md:flex-row overflow-hidden
-                                        bg-white rounded-lg shadow-xl  mt-4 w-100 mx-2 border-2"
+              className="flex flex-col md:flex-row overflow-hidden bg-white rounded-lg shadow-xl  mt-4 w-100 mx-2 border-2"
             >
               <div className="h-auto  w-auto md:w-1/2">
                 <img
