@@ -1,4 +1,4 @@
-import react, { useRef, useEffect } from "react";
+import react, { useRef, useEffect, useContext } from "react";
 import Slider from "react-slick";
 import Sardara from "../images/Sardara.jpg";
 import bhagwant from "../images/bhagwant.jpg";
@@ -16,6 +16,7 @@ import Accordion from "./Accordion.css";
 import { BiChevronDown } from "react-icons/bi";
 import ReactAudioPlayer from 'react-audio-player';
 import dhuni from "../audio/dhuni.mpeg";
+import {AboutContext} from "../components/Context/AboutContext";
 
 const settings2 = {
   dots: true,
@@ -54,6 +55,51 @@ const data = [
 ];
 
 const HomePage = () => {
+  // language change
+  const { about, setAbout } = useContext(AboutContext);
+  const aboutInEnglish = `Punjab Assembly established Punjabi University, Patiala under the
+  Punjab Act No. 35 of 1961. Dr. S. Radhakrishnan, the then President
+  of India laid foundation of Punjabi University on June 24, 1962. He
+  preached, "The institutes of higher education share the burden of
+  nation-building in a critically important sense. Our aim is a
+  strong, free and democratic India where every citizen has an equal
+  place and full opportunity of growth. In this task, a vast
+  responsibility rests on our universities." Established on April 30,
+  1962 in the erstwhile princely state of Patiala with the main
+  objective of furthering the cause of Punjabi language, art and
+  literature, Punjabi University has since evolved into the largest
+  University in the state. This is the second University in the world
+  to be named after a language, the first being Hebrew University of
+  Israel. Its vision is to establish and incorporate a University for
+  the advancement of Punjabi studies and development of Punjabi
+  language as a medium of instruction or otherwise for providing
+  instruction in humanistic and scientific subjects and generally for
+  the promotion of education and research. The University started
+  working from its present lush green, pollution free, 316 acres
+  campus since 1965.`
+
+  const aboutInPunjabi = `ਪੰਜਾਬ ਅਸੈਂਬਲੀ ਨੇ ਪੰਜਾਬੀ ਯੂਨੀਵਰਸਿਟੀ, ਪਟਿਆਲਾ ਦੀ ਸਥਾਪਨਾ ਕੀਤੀ
+  1961 ਦਾ ਪੰਜਾਬ ਐਕਟ ਨੰ. 35. ਡਾ. ਐਸ. ਰਾਧਾਕ੍ਰਿਸ਼ਨਨ, ਤਤਕਾਲੀ ਰਾਸ਼ਟਰਪਤੀ
+  ਭਾਰਤ ਨੇ 24 ਜੂਨ 1962 ਨੂੰ ਪੰਜਾਬੀ ਯੂਨੀਵਰਸਿਟੀ ਦੀ ਨੀਂਹ ਰੱਖੀ
+  ਪ੍ਰਚਾਰ ਕੀਤਾ, "ਉੱਚ ਸਿੱਖਿਆ ਦੇ ਅਦਾਰੇ ਦਾ ਬੋਝ ਸਾਂਝਾ ਕਰਦੇ ਹਨ
+  ਇੱਕ ਨਾਜ਼ੁਕ ਤੌਰ 'ਤੇ ਮਹੱਤਵਪੂਰਨ ਅਰਥਾਂ ਵਿੱਚ ਰਾਸ਼ਟਰ-ਨਿਰਮਾਣ। ਸਾਡਾ ਉਦੇਸ਼ ਏ
+  ਮਜ਼ਬੂਤ, ਆਜ਼ਾਦ ਅਤੇ ਜਮਹੂਰੀ ਭਾਰਤ ਜਿੱਥੇ ਹਰ ਨਾਗਰਿਕ ਬਰਾਬਰ ਹੋਵੇ
+  ਸਥਾਨ ਅਤੇ ਵਿਕਾਸ ਦਾ ਪੂਰਾ ਮੌਕਾ. ਇਸ ਕਾਰਜ ਵਿੱਚ, ਇੱਕ ਵਿਸ਼ਾਲ
+  ਜ਼ਿੰਮੇਵਾਰੀ ਸਾਡੀਆਂ ਯੂਨੀਵਰਸਿਟੀਆਂ 'ਤੇ ਨਿਰਭਰ ਕਰਦੀ ਹੈ।" 30 ਅਪ੍ਰੈਲ ਨੂੰ ਸਥਾਪਿਤ,
+  ਸੰਨ 1962 ਵਿਚ ਪਟਿਆਲਾ ਦੀ ਸਾਬਕਾ ਰਿਆਸਤ ਮੁੱਖ ਨਾਲ
+  ਪੰਜਾਬੀ ਭਾਸ਼ਾ, ਕਲਾ ਅਤੇ ਦੇ ਉਦੇਸ਼ ਨੂੰ ਅੱਗੇ ਵਧਾਉਣ ਦਾ ਉਦੇਸ਼
+  ਸਾਹਿਤ, ਪੰਜਾਬੀ ਯੂਨੀਵਰਸਿਟੀ ਉਦੋਂ ਤੋਂ ਸਭ ਤੋਂ ਵੱਡੀ ਬਣ ਗਈ ਹੈ
+  ਰਾਜ ਵਿੱਚ ਯੂਨੀਵਰਸਿਟੀ. ਇਹ ਦੁਨੀਆ ਦੀ ਦੂਜੀ ਯੂਨੀਵਰਸਿਟੀ ਹੈ
+  ਕਿਸੇ ਭਾਸ਼ਾ ਦੇ ਨਾਮ 'ਤੇ ਰੱਖਿਆ ਜਾਣਾ, ਪਹਿਲੀ ਇਬਰਾਨੀ ਯੂਨੀਵਰਸਿਟੀ ਹੈ
+  ਇਜ਼ਰਾਈਲ। ਇਸ ਦਾ ਦ੍ਰਿਸ਼ਟੀਕੋਣ ਲਈ ਇੱਕ ਯੂਨੀਵਰਸਿਟੀ ਸਥਾਪਤ ਕਰਨਾ ਅਤੇ ਸ਼ਾਮਲ ਕਰਨਾ ਹੈ
+  ਪੰਜਾਬੀ ਅਧਿਐਨ ਦੀ ਤਰੱਕੀ ਅਤੇ ਪੰਜਾਬੀ ਦਾ ਵਿਕਾਸ
+  ਭਾਸ਼ਾ ਨੂੰ ਸਿੱਖਿਆ ਦੇ ਮਾਧਿਅਮ ਵਜੋਂ ਜਾਂ ਕਿਸੇ ਹੋਰ ਤਰ੍ਹਾਂ ਪ੍ਰਦਾਨ ਕਰਨ ਲਈ
+  ਮਾਨਵਵਾਦੀ ਅਤੇ ਵਿਗਿਆਨਕ ਵਿਸ਼ਿਆਂ ਵਿੱਚ ਹਦਾਇਤਾਂ ਅਤੇ ਆਮ ਤੌਰ 'ਤੇ ਲਈ
+  ਸਿੱਖਿਆ ਅਤੇ ਖੋਜ ਦਾ ਪ੍ਰਚਾਰ. ਯੂਨੀਵਰਸਿਟੀ ਸ਼ੁਰੂ ਹੋਈ
+  ਇਸ ਦੇ ਮੌਜੂਦਾ ਹਰੇ ਭਰੇ, ਪ੍ਰਦੂਸ਼ਣ ਮੁਕਤ, 316 ਏਕੜ ਤੋਂ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ
+  1965 ਤੋਂ ਕੈਂਪਸ`
+
+
   const dutiesRef = useRef(null);
   const aimsRef = useRef(null);
 
@@ -93,28 +139,9 @@ const HomePage = () => {
         <div className="w-[60vw] mr-5 ml-10">
           <h1 className="font-bold text-2xl ml-10 p-6">About Punjabi University</h1>
           <p className="p-2  text-justify space-x-4">
-            Punjab Assembly established Punjabi University, Patiala under the
-            Punjab Act No. 35 of 1961. Dr. S. Radhakrishnan, the then President
-            of India laid foundation of Punjabi University on June 24, 1962. He
-            preached, "The institutes of higher education share the burden of
-            nation-building in a critically important sense. Our aim is a
-            strong, free and democratic India where every citizen has an equal
-            place and full opportunity of growth. In this task, a vast
-            responsibility rests on our universities." Established on April 30,
-            1962 in the erstwhile princely state of Patiala with the main
-            objective of furthering the cause of Punjabi language, art and
-            literature, Punjabi University has since evolved into the largest
-            University in the state. This is the second University in the world
-            to be named after a language, the first being Hebrew University of
-            Israel. Its vision is to establish and incorporate a University for
-            the advancement of Punjabi studies and development of Punjabi
-            language as a medium of instruction or otherwise for providing
-            instruction in humanistic and scientific subjects and generally for
-            the promotion of education and research. The University started
-            working from its present lush green, pollution free, 316 acres
-            campus since 1965.
+            {about === '2'? aboutInPunjabi : aboutInEnglish}
           </p>
-          <p className="p-2  text-justify space-x-4">
+          {/* <p className="p-2  text-justify space-x-4">
             Initially University’s jurisdiction area was fixed as the 16 km
             radius having only 9 colleges. In 1969, it grew into an affiliating
             university, with 43 colleges affiliated to it. Now the university
@@ -129,7 +156,7 @@ const HomePage = () => {
             and Research Departments/Chairs on its Campus, 27 Regional Centre/
             Neighbourhood Campuses/Constituent Colleges and 274 Colleges
             affiliated to it.
-          </p>
+          </p> */}
 
           <hr />
         </div>

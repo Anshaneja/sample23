@@ -1,6 +1,6 @@
 // Sticks only second part of navbar
 
-import react, { useState } from "react";
+import react, { useState, useContext } from "react";
 import Logo from "../../images/Logo.jpg";
 import Pup from "../../images/Pup.jpeg";
 import Pup_photo from "../../images/Pup_photo.png";
@@ -12,6 +12,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import alumni from "../../images/alumni.jpeg";
+import {AboutContext} from "../Context/AboutContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -38,6 +39,12 @@ const NavMd = () => {
 };
 const NavLg = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const { about, setAbout } = useContext(AboutContext);
+
+  function languageChangeHandler(){
+    setAbout( about === '1'? '2' : '1')
+    // 1 -> English , 2-> Punjabi
+  }
   return (
     <>
       <div className="flex w-full pb-3 justify-around">
@@ -358,6 +365,8 @@ const NavLg = () => {
               </Menu.Items>
             </Transition>
           </Menu>
+
+          <button onClick={languageChangeHandler}>ਪੰਜਾਬੀ / English</button>
         </div>
       </div>
     </>
